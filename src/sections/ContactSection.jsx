@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,8 @@ export default function ContactSection() {
     company: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -15,9 +18,127 @@ export default function ContactSection() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    window.location.href = `mailto:info@unicornconnectedapps.com?subject=${encodeURIComponent('Contact Form Submission')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`)}`;
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    // EmailJS configuration - Replace these with your actual credentials
+    // Get them from https://www.emailjs.com/ after setting up your account
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+    const TEMPLATE_ID_INQUIRY = import.meta.env.VITE_EMAILJS_TEMPLATE_INQUIRY || 'YOUR_TEMPLATE_ID_INQUIRY';
+    const TEMPLATE_ID_REPLY = import.meta.env.VITE_EMAILJS_TEMPLATE_REPLY || 'YOUR_TEMPLATE_ID_REPLY';
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+    // Debug: Log environment variables (check browser console)
+    console.log('EmailJS Config Check:', {
+      SERVICE_ID,
+      TEMPLATE_ID_INQUIRY,
+      TEMPLATE_ID_REPLY,
+      PUBLIC_KEY: PUBLIC_KEY ? 'Set' : 'Not set',
+      allEnvVars: import.meta.env
+    });
+
+    // Check if EmailJS is configured
+    const isEmailJSConfigured = 
+      SERVICE_ID !== 'YOUR_SERVICE_ID' && 
+      TEMPLATE_ID_INQUIRY !== 'YOUR_TEMPLATE_ID_INQUIRY' &&
+      TEMPLATE_ID_REPLY !== 'YOUR_TEMPLATE_ID_REPLY' &&
+      PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
+
+    if (!isEmailJSConfigured) {
+      // Fallback to mailto if EmailJS is not configured
+      const subject = encodeURIComponent('Contact Form Submission');
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Company: ${formData.company || 'N/A'}\n\n` +
+        `Message:\n${formData.message}`
+      );
+      window.location.href = `mailto:nirojan.baala@gmail.com?subject=${subject}&body=${body}`;
+      setIsSubmitting(false);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', company: '', message: '' });
+      setTimeout(() => setSubmitStatus(null), 5000);
+      return;
+    }
+
+    try {
+      console.log('=== EmailJS Debug Info ===');
+      console.log('Service ID:', SERVICE_ID);
+      console.log('Inquiry Template ID:', TEMPLATE_ID_INQUIRY);
+      console.log('Reply Template ID:', TEMPLATE_ID_REPLY);
+      console.log('Public Key:', PUBLIC_KEY ? 'Set (' + PUBLIC_KEY.substring(0, 10) + '...)' : 'Not set');
+
+      // Send inquiry email to nirojan.baala@gmail.com
+      // Template uses: {{name}}, {{time}}, {{message}}
+      console.log('Sending inquiry email...');
+      const inquiryParams = {
+        name: formData.name,
+        time: new Date().toLocaleString(),
+        message: `Email: ${formData.email}\nCompany: ${formData.company || 'Not provided'}\n\nMessage:\n${formData.message}`,
+      };
+      console.log('Inquiry params:', inquiryParams);
+      
+      const inquiryResult = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID_INQUIRY,
+        inquiryParams,
+        PUBLIC_KEY
+      );
+
+      console.log('✓ Inquiry email sent successfully:', inquiryResult);
+
+      // Send auto-reply to client
+      // Template uses: {{name}}, {{title}}, and {{email}} for To Email field
+      console.log('Sending auto-reply email...');
+      const replyParams = {
+        name: formData.name, // Template uses {{name}}
+        title: 'Contact Form Submission', // Template uses {{title}}
+        email: formData.email, // Template uses {{email}} for To Email field
+      };
+      console.log('Reply params:', replyParams);
+      
+      const replyResult = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID_REPLY,
+        replyParams,
+        PUBLIC_KEY
+      );
+
+      console.log('✓ Auto-reply email sent successfully:', replyResult);
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', company: '', message: '' });
+      
+      // Clear status message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } catch (error) {
+      console.error('❌ ========== EMAIL ERROR ==========');
+      console.error('Error object:', error);
+      console.error('Error status:', error.status);
+      console.error('Error text:', error.text);
+      console.error('Error message:', error.message);
+      console.error('Full error:', JSON.stringify(error, null, 2));
+      console.error('=====================================');
+      
+      let errorMessage = 'Failed to send message.\n\n';
+      if (error.text) {
+        errorMessage += `EmailJS Error: ${error.text}\n`;
+      }
+      if (error.status) {
+        errorMessage += `Status Code: ${error.status}\n`;
+      }
+      if (error.message) {
+        errorMessage += `Error: ${error.message}\n`;
+      }
+      errorMessage += '\nPlease check the browser console (F12) for full details.';
+      
+      setSubmitStatus('error');
+      alert(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -100,14 +221,35 @@ export default function ContactSection() {
                 ></textarea>
               </div>
               
+              {submitStatus === 'success' && (
+                <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                  <p className="text-sm font-medium">✓ Message sent successfully! We'll get back to you soon.</p>
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+                  <p className="text-sm font-medium">✗ Failed to send message. Please try again or contact us directly at info@unicornconnectedapps.com</p>
+                  {/* <p className="text-xs mt-2 text-red-600">
+                    Check the browser console (F12) for error details. Common issues:
+                    <br />• Verify EmailJS credentials in .env file are correct
+                    <br />• Make sure you restarted the dev server after updating .env
+                    <br />• Check that EmailJS templates match the variable names used
+                  </p> */}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors flex items-center justify-center"
+                disabled={isSubmitting}
+                className="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {!isSubmitting && (
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                )}
               </button>
             </form>
           </div>
