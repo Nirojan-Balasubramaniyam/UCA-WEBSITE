@@ -93,7 +93,7 @@ export default function AboutSection() {
     <section id="about" className="section-padding bg-gray-50">
       <div className="container-custom">
         {/* About Us Overview with Mission/Vision and Core Values */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 mb-20">
           {/* Left Column - Text Content, Mission & Vision */}
           <div>
             <p className="text-primary-500 uppercase text-sm font-semibold tracking-wide mb-3">ABOUT US</p>
@@ -215,7 +215,7 @@ export default function AboutSection() {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {processSteps.map((step, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+              <div key={index} className="bg-white/30 backdrop-blur-sm p-6 rounded-lg">
                 <div className="text-3xl font-bold text-primary-200 mb-3">{step.step}</div>
                 <h4 className="text-xl font-semibold mb-3">{step.title}</h4>
                 <p className="text-white/90 text-sm leading-relaxed">{step.description}</p>
