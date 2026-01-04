@@ -25,10 +25,12 @@ export default function ContactSection() {
 
     // EmailJS configuration - Replace these with your actual credentials
     // Get them from https://www.emailjs.com/ after setting up your account
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-    const TEMPLATE_ID_INQUIRY = import.meta.env.VITE_EMAILJS_TEMPLATE_INQUIRY || 'YOUR_TEMPLATE_ID_INQUIRY';
-    const TEMPLATE_ID_REPLY = import.meta.env.VITE_EMAILJS_TEMPLATE_REPLY || 'YOUR_TEMPLATE_ID_REPLY';
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+    // Note: Environment variables are not available in GitHub Pages build
+    // You'll need to set these in your EmailJS dashboard or use a different approach
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+    const TEMPLATE_ID_INQUIRY = import.meta.env.VITE_EMAILJS_TEMPLATE_INQUIRY || '';
+    const TEMPLATE_ID_REPLY = import.meta.env.VITE_EMAILJS_TEMPLATE_REPLY || '';
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
 
     // Debug: Log environment variables (check browser console)
     console.log('EmailJS Config Check:', {
@@ -41,10 +43,14 @@ export default function ContactSection() {
 
     // Check if EmailJS is configured
     const isEmailJSConfigured = 
-      SERVICE_ID !== 'YOUR_SERVICE_ID' && 
-      TEMPLATE_ID_INQUIRY !== 'YOUR_TEMPLATE_ID_INQUIRY' &&
-      TEMPLATE_ID_REPLY !== 'YOUR_TEMPLATE_ID_REPLY' &&
-      PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
+      SERVICE_ID && 
+      SERVICE_ID !== '' &&
+      TEMPLATE_ID_INQUIRY && 
+      TEMPLATE_ID_INQUIRY !== '' &&
+      TEMPLATE_ID_REPLY && 
+      TEMPLATE_ID_REPLY !== '' &&
+      PUBLIC_KEY && 
+      PUBLIC_KEY !== '';
 
     if (!isEmailJSConfigured) {
       // Fallback to mailto if EmailJS is not configured
