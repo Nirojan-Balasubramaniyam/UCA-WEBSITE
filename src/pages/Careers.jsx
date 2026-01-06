@@ -97,7 +97,7 @@ export default function Careers() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{opportunity.title}</h3>
                 <p className="text-gray-600 mb-4">{opportunity.description}</p>
                 <a
-                  href="mailto:careers@unicornconnectedapps.com"
+                  href="mailto:info@unicornconnectedapps.com"
                   className="text-primary-600 font-semibold hover:text-primary-700 transition-colors"
                 >
                   Apply Now →
@@ -140,15 +140,15 @@ export default function Careers() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Send your resume to{' '}
             <a
-              href="mailto:careers@unicornconnectedapps.com"
+              href="mailto:info@unicornconnectedapps.com"
               className="underline hover:text-primary-200 transition-colors"
             >
-              careers@unicornconnectedapps.com
+              info@unicornconnectedapps.com
             </a>{' '}
             or apply through our careers portal.
           </p>
           <a
-            href="mailto:careers@unicornconnectedapps.com"
+            href="mailto:info@unicornconnectedapps.com"
             className="btn-primary bg-white text-primary-600 hover:bg-gray-100 inline-block"
           >
             Apply Now
@@ -158,4 +158,6 @@ export default function Careers() {
     </div>
   );
 }
+
+
 

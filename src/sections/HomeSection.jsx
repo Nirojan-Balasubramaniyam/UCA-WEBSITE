@@ -1,3 +1,6 @@
+// Import home background image
+import homeDeveloperImg from '../assets/home-developer.png';
+
 export default function HomeSection() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -7,43 +10,117 @@ export default function HomeSection() {
   };
 
   return (
-    <section id="home" className="min-h-screen">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary-50 via-white to-white section-padding pt-32 pb-24">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Transforming Ideas Into Intelligent, Tailored Software
-            </h1>
-            <p className="text-xl text-gray-700 mb-10 leading-relaxed">
-              We design, build and optimize digital products that are as unique as your business. 
-              Our team crafts tailored software solutions enhanced by artificial intelligence and 
-              machine learning to help you scale smarter, faster and stronger. From the first idea 
-              to final deployment, we blend innovation with experience to make technology work for you.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="btn-primary"
-              >
-                Get Started
-              </button>
-              <button
-                onClick={() => scrollToSection('services')}
-                className="btn-secondary"
-              >
-                Discover Our Services
-              </button>
-              <button
-                onClick={() => scrollToSection('technologies')}
-                className="btn-secondary"
-              >
-                Explore Our Technologies
-              </button>
+      <section id="home" className="relative m-0 p-0">
+        {/* Hero Section - Modern Full Screen Layout */}
+        <div className="relative md:min-h-screen overflow-hidden m-0 p-0">
+          {/* Desktop: Background Image with Gradient Overlay */}
+          <div 
+            className="hidden md:flex absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(${homeDeveloperImg})`,
+            }}
+          />
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#004166] via-[#004166]/90 to-transparent"></div>
+          
+          {/* Mobile Layout: Image First, Then Text */}
+          <div className="md:hidden bg-[#004166] w-full">
+            {/* Mobile: Centered Image - Larger Size */}
+            <div >
+              <img 
+                src={homeDeveloperImg} 
+                alt="Developer working" 
+                className="absolute "
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#004166]/60 via-[#004166]/40 to-[#004166]"></div>
+            </div>
+            
+            {/* Mobile: Text Content Below Image - No Gap */}
+            <div className="bg-[#004166] pt-6 pb-12 px-4 m-0">
+              <div className="max-w-7xl mx-auto">
+                <div className="inline-block mb-4">
+                  <span className="bg-primary-500/20 backdrop-blur-sm text-primary-300 px-4 py-2 rounded-full text-sm font-semibold border border-primary-400/30">
+                    Intelligent Software Solutions
+                  </span>
+                </div>
+<h1 className="text-4xl font-bold mb-10 leading-tight text-white drop-shadow-2xl max-w-[18ch]">
+  Transforming Ideas Into <span className="text-primary-300">Intelligent</span>, Tailored Software
+</h1>
+
+                <p className="text-lg mb-10 leading-relaxed text-white/95 drop-shadow-lg">
+                  We design, build and optimize digital products that are as unique as your business. 
+                  Our team crafts tailored software solutions enhanced by artificial intelligence and 
+                  machine learning to help you scale smarter, faster and stronger.
+                </p>
+                <div className="flex flex-col gap-4">
+                  <button
+                    onClick={() => scrollToSection('contact')}
+                    className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                  >
+                    Get Started
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('services')}
+                    className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                  >
+                    Discover Our Services
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('technologies')}
+                    className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                  >
+                    Explore Our Technologies
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
+          
+          {/* Desktop: Text Content Overlay */}
+          <div className="hidden md:flex items-center absolute inset-0">
+            <div className="container-custom relative z-10 py-20 px-4 md:px-20 w-full">
+              <div className="max-w-6xl">
+                <div className="inline-block mb-4">
+                  <span className="bg-primary-500/20 backdrop-blur-sm text-primary-300 px-4 py-2 rounded-full text-sm font-semibold border border-primary-400/30">
+                    Intelligent Software Solutions
+                  </span>
+                </div>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
+                  Transforming Ideas Into <span className="text-primary-300">Intelligent</span>, Tailored Software
+                </h1>
+                <p className="text-xl md:text-2xl mb-10 leading-relaxed text-white/95 drop-shadow-lg max-w-xl">
+                  We design, build and optimize digital products that are as unique as your business. 
+                  Our team crafts tailored software solutions enhanced by artificial intelligence and 
+                  machine learning to help you scale smarter, faster and stronger.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <button
+                    onClick={() => scrollToSection('contact')}
+                    className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                  >
+                    Get Started
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('services')}
+                    className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                  >
+                    Discover Our Services
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('technologies')}
+                    className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                  >
+                    Explore Our Technologies
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Floating Decorative Elements */}
+          <div className="absolute top-20 right-20 w-32 h-32 bg-primary-500/20 rounded-full blur-3xl hidden lg:block"></div>
+          <div className="absolute bottom-20 left-20 w-40 h-40 bg-primary-400/10 rounded-full blur-3xl hidden lg:block"></div>
         </div>
-      </div>
+
 
       {/* Why Intelligent & Tailored Section */}
       <div className="section-padding bg-white">

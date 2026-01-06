@@ -38,3 +38,6 @@ This means the Service ID in your `.env` file doesn't match your EmailJS account
 2. Make sure your service shows as "Active" or "Connected"
 3. If it's not connected, click "Connect Account" and authorize it
 
+
+
+

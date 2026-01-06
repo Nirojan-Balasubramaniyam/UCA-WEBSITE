@@ -1,3 +1,6 @@
+// Import images
+import development2Image from '../assets/development2.jpg';
+
 export default function AboutSection() {
   const coreValues = [
     {
@@ -45,17 +48,17 @@ export default function AboutSection() {
       image: '👨‍💼',
     },
     {
-      name: 'NEIL ANTHONY-PILLAI',
+      name: 'Neil Anthony-Pillai',
       role: 'Director',
       image: '👨‍🔬',
     },
    {
-      name: 'MAYORAN',
+      name: 'Mayooran',
       role: 'Head of Organisation & Senior Tech Lead',
       image: '👨‍💼',
     },
     {
-      name: 'HARIHALAN',
+      name: 'Harihalan',
       role: 'Operational Manager',
       image: '👨‍💻',
     },
@@ -170,7 +173,19 @@ export default function AboutSection() {
 
         {/* Team Members */}
         <div className="mb-16">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Leadership Team</h3>
+          <div className="text-center mb-12">
+            <div className="inline-block mb-4">
+              <span className="bg-primary-100 text-primary-600 px-4 py-2 rounded-full text-sm font-semibold">
+                OUR TEAM
+              </span>
+            </div>
+            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Leadership Team</h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Our diverse team of experts brings together years of experience in software engineering, 
+              AI/ML, design, and strategy. We're committed to delivering excellence in every project 
+              and building lasting relationships with our clients.
+            </p>
+          </div>
           <div className="grid md:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-md text-center">
@@ -208,7 +223,16 @@ export default function AboutSection() {
         </div>
 
         {/* How We Work */}
-        <div className="bg-primary-600 text-white p-10 rounded-xl shadow-md">
+        <div className="bg-primary-600 text-white p-10 rounded-xl shadow-md relative overflow-hidden">
+          {/* Development Process Image as Background Element */}
+          <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 hidden lg:block">
+            <img 
+              src={development2Image} 
+              alt="Development Process" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative z-10">
           <h3 className="text-3xl font-bold mb-4 text-center">How We Work</h3>
           <p className="text-xl text-center mb-12 max-w-3xl mx-auto">
             Our development process combines time-tested methodologies with AI-driven innovation:
@@ -221,6 +245,7 @@ export default function AboutSection() {
                 <p className="text-white/90 text-sm leading-relaxed">{step.description}</p>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>

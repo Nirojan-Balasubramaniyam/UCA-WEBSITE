@@ -1,3 +1,6 @@
+// Import development image
+import developmentImage from '../assets/team.jpg';
+
 export default function ServicesSection() {
   const services = [
     {
@@ -94,25 +97,69 @@ export default function ServicesSection() {
   return (
     <section id="services" className="section-padding bg-white">
       <div className="container-custom">
-        <div className="text-center mb-16">
+        <div className="mb-16">
           <p className="text-primary-500 uppercase text-sm font-semibold tracking-wide mb-3">OUR SERVICES</p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">Comprehensive Solutions</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
             Explore our suite of services designed to solve modern business challenges with innovative technology.
           </p>
+        </div>
+
+        {/* Development Image - Modern Asymmetric Layout */}
+        <div className="relative mb-16 overflow-hidden">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Image - Modern Styling with Overlay */}
+            <div className="relative order-2 lg:order-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+                <img 
+                  src={developmentImage} 
+                  alt="Development Team" 
+                  className="w-full h-[500px] md:h-[600px] object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-transparent"></div>
+                {/* Floating Badge */}
+                <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg">
+                  <span className="text-primary-600 font-semibold text-sm">Expert Team</span>
+                </div>
+              </div>
+              {/* Decorative Blur Element */}
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary-400/30 rounded-full blur-3xl -z-10"></div>
+            </div>
+            
+            {/* Text Content - Modern Card */}
+            <div className="relative z-10 order-1 lg:order-2">
+              <div className="bg-gradient-to-br from-gray-50 to-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+                <div className="inline-block mb-4">
+                  <span className="bg-primary-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                    OUR EXPERTISE
+                  </span>
+                </div>
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Expert Development Services</h3>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Our experienced team combines cutting-edge technology with proven methodologies to deliver 
+                  solutions that drive your business forward. We work closely with you to understand your 
+                  unique challenges and create tailored software that meets your specific needs.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  From initial concept to final deployment, we ensure every project is executed with precision, 
+                  quality, and attention to detail.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-gray-50 p-6 rounded-xl hover:shadow-md transition-all duration-300"
+              className="group bg-white p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary-300 hover:-translate-y-2"
             >
-              <div className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center mb-4 text-white">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 leading-relaxed text-sm">{service.description}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">{service.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{service.description}</p>
             </div>
           ))}
         </div>

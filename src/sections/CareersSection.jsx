@@ -1,3 +1,6 @@
+// Import team image for careers section
+import teamImage from '../assets/hiring.jpg';
+
 export default function CareersSection() {
   const opportunities = [
     {
@@ -79,6 +82,15 @@ export default function CareersSection() {
               individuals who want to build the future using AI, ML and tailored software solutions.
             </p>
 
+            {/* Team Image */}
+            <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
+              <img 
+                src={teamImage} 
+                alt="Our Team" 
+                className="w-full h-[300px] md:h-[400px] object-cover"
+              />
+            </div>
+
             <div className="space-y-6 mb-8">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-4">
@@ -94,7 +106,7 @@ export default function CareersSection() {
             </div>
 
             <a
-              href="mailto:careers@unicornconnectedapps.com"
+              href="mailto:info@unicornconnectedapps.com"
               className="inline-flex items-center bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors"
             >
               Apply Now
@@ -121,10 +133,10 @@ export default function CareersSection() {
             <div className="bg-primary-50 p-4 rounded-lg">
               <p className="text-sm text-gray-700 mb-2">Send your resume to</p>
               <a
-                href="mailto:careers@unicornconnectedapps.com"
+                href="mailto:info@unicornconnectedapps.com"
                 className="text-primary-600 font-semibold hover:underline"
               >
-                careers@unicornconnectedapps.com
+                info@unicornconnectedapps.com
               </a>
             </div>
           </div>

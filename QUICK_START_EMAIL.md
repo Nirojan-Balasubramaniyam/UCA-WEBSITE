@@ -99,3 +99,6 @@ Outlook is opening because EmailJS is not configured yet. The form is using a fa
 - Make sure you restarted the dev server after creating .env
 - Free EmailJS account allows 200 emails/month
 
+
+
+

@@ -3,33 +3,60 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-primary-100 section-padding">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Transforming Ideas Into Intelligent, Tailored Software
-            </h1>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              We design, build and optimize digital products that are as unique as your business. 
-              Our team crafts tailored software solutions enhanced by artificial intelligence and 
-              machine learning to help you scale smarter, faster and stronger. From the first idea 
-              to final deployment, we blend innovation with experience to make technology work for you.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="btn-primary">
-                Get Started
-              </Link>
-              <Link to="/services" className="btn-secondary">
-                Discover Our Services
-              </Link>
-              <Link to="/technologies" className="btn-secondary">
-                Explore Our Technologies
-              </Link>
-            </div>
-          </div>
+{/* Hero Section */}
+<section className="bg-gradient-to-br from-primary-50 to-primary-100 section-padding">
+  <div className="container-custom">
+    
+    {/* Wrapper */}
+    <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
+      
+      {/* TEXT CONTENT – 70% */}
+      <div className="w-full lg:w-[70%] text-left">
+        
+        <span className="inline-block mb-4 px-4 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-semibold">
+          Intelligent Software Solutions
+        </span>
+
+        <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          Transforming Ideas <br />
+          Into <span className="text-primary-600">Intelligent,</span><br />
+          Tailored Software
+        </h1>
+
+        <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed max-w-3xl">
+          We design, build and optimize digital products that are as unique as your business.
+          Our team crafts tailored software solutions enhanced by artificial intelligence and
+          machine learning to help you scale smarter, faster and stronger.
+        </p>
+
+        <div className="flex flex-wrap gap-4">
+          <Link to="/contact" className="btn-primary">
+            Get Started
+          </Link>
+
+          <Link to="/services" className="btn-secondary">
+            Discover Our Services
+          </Link>
+
+          <Link to="/technologies" className="btn-secondary">
+            Explore Our Technologies
+          </Link>
         </div>
-      </section>
+      </div>
+
+      {/* IMAGE – 30% */}
+      <div className="w-full lg:w-[30%] flex justify-center">
+        <img
+          src="/images/hero-woman-laptop.png"  // replace with your image path
+          alt="Software Development"
+          className="w-full max-w-sm object-contain"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Why Intelligent & Tailored Section */}
       <section className="section-padding bg-white">
@@ -113,4 +140,7 @@ export default function Home() {
     </div>
   );
 }
+
+
+
 
