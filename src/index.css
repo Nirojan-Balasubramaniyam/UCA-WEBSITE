@@ -30,6 +30,19 @@
     --color-primary-900: #831843;
   }
 
+  html[data-theme="grey"] {
+    --color-primary-50: #f4f5f6;
+    --color-primary-100: #e8eaec;
+    --color-primary-200: #d1d5d9;
+    --color-primary-300: #b3bac0;
+    --color-primary-400: #8f9aa3;
+    --color-primary-500: #6e767c;
+    --color-primary-600: #414a4f;
+    --color-primary-700: #353c40;
+    --color-primary-800: #2a2f33;
+    --color-primary-900: #1f2326;
+  }
+
   html {
     scroll-behavior: smooth;
   }

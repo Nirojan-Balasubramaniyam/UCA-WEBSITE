@@ -10,14 +10,16 @@ export const useTheme = () => {
   return context;
 };
 
+const themes = ['cyan', 'pink', 'grey'];
+
 export const ThemeProvider = ({ children }) => {
-  const [isPinkTheme, setIsPinkTheme] = useState(false);
+  const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
 
   useEffect(() => {
     // Update data-theme attribute - CSS will handle the color changes
     const root = document.documentElement;
-    root.setAttribute('data-theme', isPinkTheme ? 'pink' : 'cyan');
-  }, [isPinkTheme]);
+    root.setAttribute('data-theme', themes[currentThemeIndex]);
+  }, [currentThemeIndex]);
 
   // Initialize on mount
   useEffect(() => {
@@ -28,11 +30,13 @@ export const ThemeProvider = ({ children }) => {
   }, []);
 
   const toggleTheme = () => {
-    setIsPinkTheme(!isPinkTheme);
+    setCurrentThemeIndex((prev) => (prev + 1) % themes.length);
   };
 
+  const currentTheme = themes[currentThemeIndex];
+
   return (
-    <ThemeContext.Provider value={{ isPinkTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{ currentTheme, toggleTheme, themes }}>
       {children}
     </ThemeContext.Provider>
   );

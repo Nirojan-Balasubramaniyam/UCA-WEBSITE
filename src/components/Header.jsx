@@ -3,7 +3,7 @@ import { useTheme } from '../contexts/ThemeContext';
 import CAppsLogo from '../assets/CAppsLogo.png';
 
 export default function Header() {
-  const { toggleTheme, isPinkTheme } = useTheme();
+  const { toggleTheme, currentTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -86,16 +86,18 @@ export default function Header() {
 
           {/* Contact Button - Right */}
           <div className="flex items-center space-x-4">
-            {/* Temporary Theme Toggle Button */}
+            {/* Theme Toggle Button */}
             <button
               onClick={() => {
-                console.log('Theme toggle clicked, current theme:', isPinkTheme ? 'Pink' : 'Cyan');
+                console.log('Theme toggle clicked, current theme:', currentTheme);
                 toggleTheme();
               }}
-              className="fixed top-4 right-4 z-50 bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-xs shadow-lg"
-              title="Toggle Theme (Temporary)"
+              className="fixed top-4 right-4 z-50 bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-xs shadow-lg capitalize"
+              title="Toggle Theme"
             >
-              {isPinkTheme ? '🌙 Pink' : '☀️ Cyan'}
+              {currentTheme === 'cyan' && '☀️ Cyan'}
+              {currentTheme === 'pink' && '🌙 Pink'}
+              {currentTheme === 'grey' && '⚫ Grey'}
             </button>
             
             <button

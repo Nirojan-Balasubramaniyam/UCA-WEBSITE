@@ -12,12 +12,13 @@ export default function HomeSection() {
   return (
       <section id="home" className="relative m-0 p-0">
         {/* Hero Section - Modern Full Screen Layout */}
-        <div className="relative md:min-h-screen overflow-hidden m-0 p-0">
+        <div className="relative md:h-[70vh] overflow-hidden m-0 p-0">
           {/* Desktop: Background Image with Gradient Overlay */}
           <div 
-            className="hidden md:flex absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="hidden md:flex absolute inset-0 bg-cover bg-top bg-no-repeat"
             style={{
               backgroundImage: `url(${homeDeveloperImg})`,
+              backgroundPosition: 'right top',
             }}
           />
           <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#004166] via-[#004166]/90 to-transparent"></div>
@@ -36,37 +37,58 @@ export default function HomeSection() {
             
             {/* Mobile: Text Content Below Image - No Gap */}
             <div className="bg-[#004166] pt-6 pb-12 px-4 m-0">
-              <div className="max-w-7xl mx-auto">
+              <div className=" max-w-7xl ">
                 <div className="inline-block mb-4">
                   <span className="bg-primary-500/20 backdrop-blur-sm text-primary-300 px-4 py-2 rounded-full text-sm font-semibold border border-primary-400/30">
                     Intelligent Software Solutions
                   </span>
                 </div>
-<h1 className="text-4xl font-bold mb-10 leading-tight text-white drop-shadow-2xl max-w-[18ch]">
-  Transforming Ideas Into <span className="text-primary-300">Intelligent</span>, Tailored Software
-</h1>
-
+                <h1 className="mx-0 text-4xl font-bold mb-10 leading-tight text-white drop-shadow-2xl max-w-[18ch]">
+                  Transforming Ideas Into <span className="text-primary-300">Intelligent</span>, Tailored Software
+                </h1>
                 <p className="text-lg mb-10 leading-relaxed text-white/95 drop-shadow-lg">
                   We design, build and optimize digital products that are as unique as your business. 
                   Our team crafts tailored software solutions enhanced by artificial intelligence and 
                   machine learning to help you scale smarter, faster and stronger.
                 </p>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4" style={{ position: 'relative', zIndex: 100 }}>
                   <button
-                    onClick={() => scrollToSection('contact')}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      scrollToSection('contact');
+                    }}
+                    onTouchStart={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                    onTouchEnd={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      scrollToSection('contact');
+                    }}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
                     className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                    style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent', pointerEvents: 'auto', position: 'relative', zIndex: 1000, cursor: 'pointer' }}
                   >
                     Get Started
                   </button>
                   <button
                     onClick={() => scrollToSection('services')}
+                    onTouchStart={(e) => e.stopPropagation()}
                     className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                    style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
                   >
                     Discover Our Services
                   </button>
                   <button
                     onClick={() => scrollToSection('technologies')}
+                    onTouchStart={(e) => e.stopPropagation()}
                     className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                    style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
                   >
                     Explore Our Technologies
                   </button>
@@ -76,10 +98,10 @@ export default function HomeSection() {
           </div>
           
           {/* Desktop: Text Content Overlay */}
-          <div className="hidden md:flex items-center absolute inset-0">
-            <div className="container-custom relative z-10 py-20 px-4 md:px-20 w-full">
-              <div className="max-w-6xl">
-                <div className="inline-block mb-4">
+          <div className="hidden md:flex items-start absolute inset-0">
+            <div className="relative z-10 pt-16 pb-0 px-4 md:px-6 lg:px-8 xl:px-12 w-full">
+              <div className="w-full">
+                <div className="inline-block mb-6">
                   <span className="bg-primary-500/20 backdrop-blur-sm text-primary-300 px-4 py-2 rounded-full text-sm font-semibold border border-primary-400/30">
                     Intelligent Software Solutions
                   </span>
@@ -87,10 +109,8 @@ export default function HomeSection() {
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
                   Transforming Ideas Into <span className="text-primary-300">Intelligent</span>, Tailored Software
                 </h1>
-                <p className="text-xl md:text-2xl mb-10 leading-relaxed text-white/95 drop-shadow-lg max-w-xl">
-                  We design, build and optimize digital products that are as unique as your business. 
-                  Our team crafts tailored software solutions enhanced by artificial intelligence and 
-                  machine learning to help you scale smarter, faster and stronger.
+                <p className="text-base md:text-lg mb-8 leading-relaxed text-white/90 drop-shadow-lg max-w-2xl tracking-wide">
+                  We design, build and optimize digital products that are as unique as your business. Our team crafts tailored software solutions enhanced by artificial intelligence and machine learning to help you scale smarter, faster and stronger.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <button
