@@ -86,13 +86,13 @@ export default function Header() {
 
           {/* Contact Button - Right */}
           <div className="flex items-center space-x-4">
-            {/* Theme Toggle Button */}
+            {/* Theme Toggle Button - Desktop Only */}
             <button
               onClick={() => {
                 console.log('Theme toggle clicked, current theme:', currentTheme);
                 toggleTheme();
               }}
-              className="fixed top-4 right-4 z-50 bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-xs shadow-lg capitalize"
+              className="hidden lg:block fixed top-4 right-4 z-50 bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors text-xs shadow-lg capitalize"
               title="Toggle Theme"
             >
               {currentTheme === 'cyan' && '☀️ Cyan'}
@@ -153,6 +153,22 @@ export default function Header() {
               className="block w-full text-left bg-primary-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-600 transition-colors"
             >
               Contact
+            </button>
+            <button
+              onClick={() => {
+                toggleTheme();
+                setIsMenuOpen(false);
+              }}
+              className="block w-full text-left font-medium transition-colors py-2 text-gray-700 hover:text-primary-500 border-t border-gray-200 pt-3 mt-2"
+            >
+              <span className="flex items-center gap-2">
+                <span>Theme:</span>
+                <span className="capitalize">
+                  {currentTheme === 'cyan' && '☀️ Cyan'}
+                  {currentTheme === 'pink' && '🌙 Pink'}
+                  {currentTheme === 'grey' && '⚫ Grey'}
+                </span>
+              </span>
             </button>
           </div>
         )}
