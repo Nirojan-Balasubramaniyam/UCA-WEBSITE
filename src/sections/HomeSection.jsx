@@ -1,5 +1,6 @@
 // Import home background image
 import homeDeveloperImg from '../assets/home-developer.png';
+import homeDeveloperImg_mobile from '../assets/home-developer-mobile.png';
 
 export default function HomeSection() {
   const scrollToSection = (sectionId) => {
@@ -23,72 +24,56 @@ export default function HomeSection() {
           />
           <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#004166] via-[#004166]/90 to-transparent"></div>
           
-          {/* Mobile Layout: Image First, Then Text */}
-          <div className="md:hidden bg-[#004166] w-full">
-            {/* Mobile: Centered Image - Larger Size */}
-            <div >
-              <img 
-                src={homeDeveloperImg} 
-                alt="Developer working" 
-                className="absolute "
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#004166]/60 via-[#004166]/40 to-[#004166]"></div>
-            </div>
-            
-            {/* Mobile: Text Content Below Image - No Gap */}
-            <div className="bg-[#004166] pt-6 pb-12 px-4 m-0">
-              <div className=" max-w-7xl ">
-                <div className="inline-block mb-4">
+          {/* Mobile Layout: Badge First, Then Image, Then Text */}
+          <div className="md:hidden bg-[#004166] w-full flex flex-col">
+            {/* Mobile: Badge Before Image */}
+            <div className="bg-[#004166] pt-8 pb-4 px-4">
+              <div className="max-w-7xl mx-auto">
+                <div className="inline-block">
                   <span className="bg-primary-500/20 backdrop-blur-sm text-primary-300 px-4 py-2 rounded-full text-sm font-semibold border border-primary-400/30">
                     Intelligent Software Solutions
                   </span>
                 </div>
-                <h1 className="mx-0 text-4xl font-bold mb-10 leading-tight text-white drop-shadow-2xl max-w-[18ch]">
+              </div>
+            </div>
+            
+            {/* Mobile: Image - Full Width, No Side Spacing */}
+            <div className="w-full h-[400px] bg-[#004166] overflow-hidden relative">
+              <img 
+                src={homeDeveloperImg_mobile} 
+                alt="Developer working" 
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#004166]/60 via-[#004166]/40 to-[#004166]"></div>
+            </div>
+            
+            {/* Mobile: Text Content Below Image */}
+            <div className="bg-[#004166] pt-8 pb-12 px-4">
+              <div className="max-w-7xl mx-auto">
+                <h1 className="text-4xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
                   Transforming Ideas Into <span className="text-primary-300">Intelligent</span>, Tailored Software
                 </h1>
-                <p className="text-lg mb-10 leading-relaxed text-white/95 drop-shadow-lg">
+                <p className="text-lg mb-8 leading-relaxed text-white/95 drop-shadow-lg">
                   We design, build and optimize digital products that are as unique as your business. 
                   Our team crafts tailored software solutions enhanced by artificial intelligence and 
                   machine learning to help you scale smarter, faster and stronger.
                 </p>
-                <div className="flex flex-col gap-4" style={{ position: 'relative', zIndex: 100 }}>
+                <div className="flex flex-col gap-4">
                   <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      scrollToSection('contact');
-                    }}
-                    onTouchStart={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                    }}
-                    onTouchEnd={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      scrollToSection('contact');
-                    }}
-                    onMouseDown={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                    }}
-                    className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-                    style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent', pointerEvents: 'auto', position: 'relative', zIndex: 1000, cursor: 'pointer' }}
+                    onClick={() => scrollToSection('contact')}
+                    className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95"
                   >
                     Get Started
                   </button>
                   <button
                     onClick={() => scrollToSection('services')}
-                    onTouchStart={(e) => e.stopPropagation()}
-                    className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-                    style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
+                    className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95"
                   >
                     Discover Our Services
                   </button>
                   <button
                     onClick={() => scrollToSection('technologies')}
-                    onTouchStart={(e) => e.stopPropagation()}
-                    className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-                    style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
+                    className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95"
                   >
                     Explore Our Technologies
                   </button>

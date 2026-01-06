@@ -150,19 +150,19 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-padding bg-white">
-      <div className="container-custom">
+    <section id="contact" className="py-24 px-0 sm:px-4 lg:px-8 bg-white overflow-x-hidden">
+      <div className="container-custom w-full max-w-full mx-auto px-4 sm:px-6">
         {/* Hero Section - Modern Style */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16 w-full min-w-0 px-2 sm:px-0">
           <div className="inline-block mb-4">
-            <span className="bg-primary-100 text-primary-600 px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
+            <span className="bg-primary-100 text-primary-600 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
               CONTACT US
             </span>
           </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight px-2 sm:px-0 break-words">
             Let's Build Something <span className="text-primary-500">Amazing</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0 break-words">
             We'd love to discuss how our tailored, AI-driven solutions can help your business thrive.
           </p>
         </div>
@@ -197,19 +197,19 @@ export default function ContactSection() {
           <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-primary-400/10 rounded-full blur-3xl -z-10 hidden lg:block"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 w-full min-w-0 max-w-full">
           {/* Left - Contact Form */}
-          <div className="bg-gradient-to-br from-white to-gray-50 p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100 hover:shadow-3xl transition-shadow duration-300">
-            <div className="flex items-center mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-gradient-to-br from-white to-gray-50 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-100 hover:shadow-3xl transition-shadow duration-300 w-full min-w-0 overflow-hidden">
+            <div className="flex items-center mb-6 sm:mb-8 min-w-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg flex-shrink-0">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold text-gray-900">Send Us a Message</h3>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 break-words min-w-0 flex-1">Send Us a Message</h3>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 w-full min-w-0">
+              <div className="w-full min-w-0">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Your Name
                 </label>
@@ -221,11 +221,11 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-white hover:border-primary-300"
+                  className="w-full max-w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-white hover:border-primary-300 box-border"
                 />
               </div>
               
-              <div>
+              <div className="w-full min-w-0">
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address
                 </label>
@@ -237,11 +237,11 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   placeholder="john@company.com"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-white hover:border-primary-300"
+                  className="w-full max-w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-white hover:border-primary-300 box-border"
                 />
               </div>
               
-              <div>
+              <div className="w-full min-w-0">
                 <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
                   Company
                 </label>
@@ -252,11 +252,11 @@ export default function ContactSection() {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Your company name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-white hover:border-primary-300"
+                  className="w-full max-w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-white hover:border-primary-300 box-border"
                 />
               </div>
               
-              <div>
+              <div className="w-full min-w-0">
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Message
                 </label>
@@ -268,7 +268,7 @@ export default function ContactSection() {
                   required
                   rows={5}
                   placeholder="Tell us about your project..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-white hover:border-primary-300 resize-none"
+                  className="w-full max-w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-white hover:border-primary-300 resize-none box-border"
                 ></textarea>
               </div>
               
@@ -301,7 +301,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl hover:scale-[1.02] transform"
+                className="w-full max-w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl hover:scale-[1.02] transform box-border"
               >
                 {isSubmitting ? (
                   <>
@@ -324,40 +324,40 @@ export default function ContactSection() {
           </div>
 
           {/* Right - Contact Info */}
-          <div className="space-y-6">
+          <div className="space-y-6 w-full min-w-0">
             {/* Get in Touch Card */}
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-700/50 hover:shadow-3xl transition-shadow duration-300">
-              <div className="flex items-center mb-8">
-                <div className="w-12 h-12 bg-primary-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 border border-primary-400/30">
-                  <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-700/50 hover:shadow-3xl transition-shadow duration-300 w-full min-w-0 overflow-hidden">
+              <div className="flex items-center mb-6 sm:mb-8 min-w-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-500/20 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4 border border-primary-400/30 flex-shrink-0">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-bold">Get in Touch</h3>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold min-w-0 flex-1 break-words">Get in Touch</h3>
               </div>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4 p-4 rounded-xl hover:bg-white/5 transition-colors duration-300 group">
-                  <div className="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center group-hover:bg-primary-500/30 transition-colors">
-                    <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-lg sm:rounded-xl hover:bg-white/5 transition-colors duration-300 group min-w-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-500/20 rounded-lg flex items-center justify-center group-hover:bg-primary-500/30 transition-colors flex-shrink-0">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <a
                     href="mailto:info@unicornconnectedapps.com"
-                    className="text-white hover:text-primary-400 transition-colors text-lg font-medium"
+                    className="text-white hover:text-primary-400 transition-colors text-sm sm:text-base md:text-lg font-medium break-all min-w-0 flex-1"
                   >
                     info@unicornconnectedapps.com
                   </a>
                 </div>
-                <div className="flex items-center space-x-4 p-4 rounded-xl hover:bg-white/5 transition-colors duration-300 group">
-                  <div className="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center group-hover:bg-primary-500/30 transition-colors">
-                    <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-lg sm:rounded-xl hover:bg-white/5 transition-colors duration-300 group min-w-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-500/20 rounded-lg flex items-center justify-center group-hover:bg-primary-500/30 transition-colors flex-shrink-0">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <a
                     href="tel:+9421xxxxxxx"
-                    className="text-white hover:text-primary-400 transition-colors text-lg font-medium"
+                    className="text-white hover:text-primary-400 transition-colors text-sm sm:text-base md:text-lg font-medium break-words min-w-0 flex-1"
                   >
                     +94 21 xxxxxxx
                   </a>
@@ -389,17 +389,17 @@ export default function ContactSection() {
               </div> */}
 
               {/* Jaffna Office */}
-              <div className="bg-gradient-to-br from-white to-gray-50 p-8 rounded-3xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-3">
-                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-gradient-to-br from-white to-gray-50 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300 w-full min-w-0 overflow-hidden">
+                <div className="flex items-center mb-4 min-w-0">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900">Jaffna, Sri Lanka</h4>
+                  <h4 className="text-lg sm:text-xl font-bold text-gray-900 min-w-0 flex-1 break-words">Jaffna, Sri Lanka</h4>
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-sm sm:text-base text-gray-600 mb-4 break-words">
                   Unicorn Connected Apps Limited<br />
                   83 Chetty Street, Nallur, Jaffna
                 </p>
