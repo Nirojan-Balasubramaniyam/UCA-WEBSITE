@@ -7,9 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Unicorn Connected Apps - Transforming ideas into intelligent, tailored software solutions with AI and ML" />
     <title>Unicorn Connected Apps - Intelligent Software Solutions</title>
+    <script>
+      // Fallback: If assets fail to load, show error
+      window.addEventListener('error', function(e) {
+        if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+          console.error('Failed to load:', e.target.src || e.target.href);
+        }
+      }, true);
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <noscript>
+        <div style="padding: 20px; text-align: center; font-family: Arial;">
+          <h1>JavaScript Required</h1>
+          <p>Please enable JavaScript to view this site.</p>
+        </div>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
