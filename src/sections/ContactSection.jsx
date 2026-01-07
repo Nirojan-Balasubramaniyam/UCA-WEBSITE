@@ -25,14 +25,13 @@ export default function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // EmailJS configuration - Replace these with your actual credentials
-    // Get them from https://www.emailjs.com/ after setting up your account
-    // Note: Environment variables are not available in GitHub Pages build
-    // You'll need to set these in your EmailJS dashboard or use a different approach
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
-    const TEMPLATE_ID_INQUIRY = import.meta.env.VITE_EMAILJS_TEMPLATE_INQUIRY || '';
-    const TEMPLATE_ID_REPLY = import.meta.env.VITE_EMAILJS_TEMPLATE_REPLY || '';
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
+    // EmailJS configuration
+    // Note: Hardcoded for GitHub Pages deployment (env vars not available in build)
+    // These are safe to expose as EmailJS public keys are meant to be public
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_cgb3uao';
+    const TEMPLATE_ID_INQUIRY = import.meta.env.VITE_EMAILJS_TEMPLATE_INQUIRY || 'template_6f6hbtq';
+    const TEMPLATE_ID_REPLY = import.meta.env.VITE_EMAILJS_TEMPLATE_REPLY || 'template_m85q866';
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YN6HqrhEsi_cs5Njd';
 
     // Debug: Log environment variables (check browser console)
     console.log('EmailJS Config Check:', {
